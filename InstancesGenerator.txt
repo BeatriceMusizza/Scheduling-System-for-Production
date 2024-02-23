@@ -1,0 +1,34 @@
+import random  
+import os
+
+
+def generate_random_instance(range_of_orders,range_of_lines,range_of_categories,range_of_days):
+    
+    num_orders = random.randint(1, range_of_orders)  # Random number of orders
+    num_lines = random.randint(1,range_of_lines)  # Random number of lines
+    num_categories = random.randint(1, range_of_categories)  # Random number of categories
+
+    min_start_days = [random.randint(0, range_of_days-1) for i in range(num_orders)]  # Random values for MinStartDays
+    max_end_days = [random.randint(min_start_days[i], range_of_days-1) for i in range(num_orders)]  # Random values for MaxEndDays, starting from the first possible day
+    number_of_operations = [random.randint(1, max(max_end_days)) for i in range(num_orders)]  # Random values for NumberOfOperations
+    orders_category = [random.randint(0, num_categories-1) for i in range(num_orders)]  # Random values for OrdersCategory
+
+    with open(f"prod_{num_orders}.dzn", "w") as f:
+        f.write(f"Lines = {num_lines};\n")
+        f.write(f"Orders = {num_orders};\n")
+        f.write(f"Categories = {num_categories};\n")
+        f.write("\n")
+
+        f.write(f"MinStartDays = [{', '.join(map(str, min_start_days))}];\n")
+        f.write(f"MaxEndDays = [{', '.join(map(str, max_end_days))}];\n")
+        f.write(f"NumberOfOperations = [{', '.join(map(str, number_of_operations))}];\n")
+        f.write(f"Category = [{', '.join(map(str, orders_category))}];\n")
+
+def main():
+    range_of_orders=input("Insert max number of orders: ")
+    range_of_lines=input("Insert max number of lines: ")
+    range_of_categories=input("Insert max number of categories: ")
+    range_of_days=input("Insert max number of days: ")
+    generate_random_instance(int(range_of_orders),int(range_of_lines),int(range_of_categories),int(range_of_days))
+
+main()

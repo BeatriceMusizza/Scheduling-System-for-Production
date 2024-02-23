@@ -1,0 +1,9 @@
+Lines = 6;
+Orders = 8;
+Categories = 9;
+
+MinStartDays = [8, 2, 7, 2, 6, 1, 5, 9];
+MaxEndDays = [11, 10, 7, 5, 9, 7, 9, 11];
+NumberOfOperations = [2, 3, 2, 5, 2, 5, 8, 1];
+Category = [3, 8, 0, 5, 2, 0, 2, 4];
+

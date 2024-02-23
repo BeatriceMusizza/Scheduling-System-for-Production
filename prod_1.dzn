@@ -1,0 +1,14 @@
+Lines = 5;
+Orders = 1;
+Categories = 3;
+
+MinStartDays = [7];
+MaxEndDays = [26];
+OrdersDuration = [12];
+OrdersSpecialisation = [1];
+
+%instance with a single order
+
+
+
+
